@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Product</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      /* Internal CSS stylesheet */
+      body {
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        background: #D3CCE3; 
+        background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3); 
+       background: linear-gradient(to right, #E9E4F0, #D3CCE3); 
+      }
+      table {
+        border-collapse: collapse;
+        width: 80%;
+        align-content: center;
+        align-items: center;
+        margin-left: 10rem;
+        margin-top: 6rem; 
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color:darkmagenta;
+        color: white;
+      }
+
+     .btn{
+        width: 10%;
+        background-color: #c31432;
+        background: -webkit-linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+        ); 
+
+        color: white;
+        padding: 14px 20px;
+        /* margin: 8px 0; */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float:center;
+        /* margin-left: -2px;  */
+        align-items: center;
+        text-align: center;
+        margin-left: 47rem;
+      }
+
+     
+        h1 {
+        float:center;
+        margin-left: 20px;
+        font-weight: bolder; 
+        font-size: 30px;
+        text-align: center!important;
+        padding-top: 30px;
+        /* margin-left: 50px; */
+        
+        color: linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+
+        );
+        text-align: center;
+      }
+      h2 {
+        float:center;
+        margin-left: 20px;
+        font-weight: bolder; 
+        font-size: 30px;
+        text-align: center!important;
+        padding-top: 30px;
+        /* margin-left: 50px; */
+        
+        color: linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+
+        );
+        text-align: center;
+      }
+      .box{
+        display: flex;
+        flex-direction: column;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Buyer Name</th>
+          <th>Product Name</th>
+          <th>Product Id</th>
+          <th>Time Of Buy</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% var count=0%> <% results.forEach((result)=>{ %>
+        <tr>
+          <td><%=result.username%></td>
+          <td><%=result.prod_name%></td>
+          <td><%=result.p_id%></td>
+          <td><%=result.time%></td>
+          <td><%=result.price%></td>
+          <td>
+            <form action="/api/updatecartProduct/<%=result.id%>" method="POST">
+              <input
+                type="number"
+                name="quantity"
+                value="<%=result.quantity%>"
+              />
+              <button type="submit">Update</button>
+            </form>
+          </td>
+          <td><%=result.price * result.quantity%></td>
+          <td>
+            <a href="/api/deletecartProduct/<%=result.id%>">
+              <button>Delete</button>
+            </a>
+          </td>
+        </tr>
+          
+        <% count = count + result.price * result.quantity %> <%})%>
+      </tbody>
+    </table>
+
+    <h1>Total amount :<%=count%></h1><br>
+
+    <a href="/checkout/allcart">
+    <button class="btn">Buy Now</button>
+    </a>
+  </body>
+</html>
+<!-- <body>
+ 
+   <h1>Your Cart</h1><br>
+   <br>
+   <br>
+   <div class="box">
+   <table id="keywords" cellspacing="0" cellpadding="0">
+     <thead>
+       <tr>
+        <th>Buyer Name</th>
+        <th>Product Name</th>
+        <th>Product Id</th>
+        <th>Time Of Buy</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th>Action</th>
+       </tr>
+     </thead>
+     <tbody>
+      <% var count=0%> <% results.forEach((result)=>{ %>
+        <tr>
+          <td><%=result.user%></td>
+          <td><%=result.username%></td>
+          <td><%=result.p_id%></td>
+          <td><%=result.time%></td>
+          <td><%=result.price%></td>
+          <td>
+            <form action="/api/updatecartProduct/<%=result.id%>" method="POST">
+              <input
+                type="number"
+                name="quantity"
+                value="<%=result.quantity%>"
+              />
+              <button type="submit">Update</button>
+            </form>
+          </td>
+          <td><%=result.price * result.quantity%></td>
+          <td>
+            <a href="/api/deletecartProduct/<%=result.id%>">
+              <button>Delete</button>
+            </a>
+          </td>
+        </tr>
+          
+</tbody>
+</table>
+      </div>
+
+      <div class="box">
+        <% count = count + result.price * result.quantity %> <%})%>
+        <h2>Total amount :<%=count%></h1>
+    <a href="/checkout/allcart">
+    <button class="btn">Buy Now</button>
+    </a>
+  </div>
+  
+     
+  
+ </body> -->

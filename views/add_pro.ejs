@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Add Product</title>
+    <style>
+ .container {
+        max-width: 500px;
+        margin: auto;
+        padding: 50px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        margin-top: 8rem;
+		background: #D3CCE3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      label {
+        margin-top: 10px;
+      }
+      input, select {
+        /* padding: 5px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 1px 1px 3px rgba(0,0,0,0.2); */
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      button {
+        background: #c31432; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+        h1 {
+        text-align: center;
+        color: #c31432; 
+       
+        color: linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+        );
+
+        margin-bottom: 30px;
+      }
+      
+    </style>
+
+  </head>
+  <body>
+   
+    <div class="container">
+      <h1>Product Description</h1>
+    <form action="/addp" method="POST">
+      <label for="name">Product Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="description">Product Description</label>
+      <input type="text" id="description" name="des" required>
+
+      <label for="price">Price</label>
+      <input type="number" id="price" name="price" min="0" step="0.01" required>
+
+      <label for="sale-price">Sale Price</label>
+      <input type="number" id="sale-price" name="saleprice" min="0" step="0.01" required>
+<% var len=results.length%>
+      <label for="category">Category</label>
+      <select id="category" name="category">
+      <%  for(var i =0;i<len;i++){%>
+        <option value="<%= results[i].id%>"><%=results[i].category%></option>
+        <%}%>
+      </select>
+
+      <a href="/dashboard"><button type="submit">Add Product</button></a>
+    </form>
+  </div>
+
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Buy Product</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+		}
+		
+		h2{
+        text-align: center;
+        color: #c31432; 
+       
+        color: linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+        );
+
+        margin-bottom: 30px;
+      }
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		input[type="text"], select {
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			width: 100%;
+			box-sizing: border-box;
+			margin-bottom: 20px;
+			font-size: 16px;
+		}
+		input[type="submit"] {
+			
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+
+		.container {
+        max-width: 500px;
+        margin: auto;
+        padding: 50px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        margin-top: 8rem;
+		background: #D3CCE3; 
+        background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  
+        background: linear-gradient(to right, #E9E4F0, #D3CCE3); 
+
+      }
+
+	  button {
+        background: #c31432; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+        ); 
+        background: linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+        ); 
+
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+	<form action="/buy" method="post">
+		<h2>Product Description</h2>
+		<label for="prod_name">Product: </label>
+		<label for="description">Description: </label>
+		<label for="address">Address:</label>
+		<input type="text" id="address" name="addr" placeholder="Enter your address">
+		<label for="payment-type">Payment Type:</label>
+		<select id="payment-type" name="mode">
+			<option value="0">Pre-Paid</option>
+			<option value="1">Post-Paid</option>
+		</select>
+        <input type="hidden" name="p_id" value="<%=id%>">
+		<a href="/dashboard"><button type="submit"> Buy Now</button></a>
+	</form>
+	</div>
+
+</body>
+</html>

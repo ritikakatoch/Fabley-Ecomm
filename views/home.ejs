@@ -1,0 +1,194 @@
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Homepage</title>
+    <style>
+      .box{
+        height:200px;
+        width:200px;
+        border:2px solid crimson;
+      }
+      .pr{
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <% results.forEach((result)=>{ %>
+    <div class="box">
+      <center>
+      <a href="details/<%=result.id%>"><h3><%=result.prod_name%></h3></a>
+      <h4><%=result.category%></h4>
+      <span class="pr"><b><%=result.price%></b></span>
+      <span><b><%=result.salesprice%></b></span><br>
+      <a href="/addcart/<%=result.id%>"><button type="button" >Add to Cart</button></a>
+      <a href="/checkout/<%=result.id%>"><button type="button" >BuyNow</button></a>
+<center>
+    </div>
+    <br>
+<%})%>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Homepage</title>
+    <style>
+      body {
+        background: whitesmoke;
+        font-family: "Poppins", sans-serif;
+        /* font-family: 'Roboto Mono', monospace; */
+        font-weight: bold;
+      }
+
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 20px;
+        margin-top: 9rem;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        flex-direction: row;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        height: 18rem;
+        width: 250px;
+      }
+
+      .card:hover {
+        box-shadow: 0 4px 10px #00000033;
+        transform: translateY(-5px);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .card-content {
+        padding: 20px;
+      }
+
+      .card-content h3 {
+        font-size: 20px;
+        margin: 0 0 10px;
+      }
+
+      .category {
+        color: #888;
+        font-size: 16px;
+        margin: 0 0 10px;
+      }
+
+      .price-section {
+        align-items: center;
+        display: flex;
+        font-size: 18px;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+
+      .prod {
+        text-decoration: none;
+      }
+
+      .price-section .price {
+        color: #555;
+      }
+
+      .price-section .sale-price {
+        color: #e74c3c;
+      }
+
+      .button-section {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .add-to-cart,
+      .buy-now {
+        background-color: #3498db;
+        border: none;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        margin-bottom: 22px !important;
+        font-size: 16px;
+        padding: 10px 15px;
+        transition: all 0.3s ease-in-out;
+      }
+      .add-to-cart {
+        background-image: linear-gradient(
+          to right,
+          #aa076b 0%,
+          #61045f 20%,
+          #aa076b 50%
+        );
+      }
+
+      .buy-now {
+        background-image: linear-gradient(
+          to right,
+          #b993d6 0%,
+          #8ca6db 51%,
+          #b993d6 100%
+        );
+      }
+
+      .description {
+        font-weight: light;
+      }
+
+      .add-to-cart:hover,
+      .buy-now:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('navbar.ejs') %>
+    <div class="container">
+      
+      <div class="card-container">
+        <% results.forEach((result) => { %>
+        <div class="card">
+          <div class="card-image">
+            <a href="details/<%= result.id %>">
+              <a alt="<%= result.prod_name %>"></a>
+            </a>
+          </div>
+          <div class="card-content">
+            <a class="prod" href="details/<%= result.id %>"
+              ><h3><%= result.prod_name %></h3></a
+            >
+            <p class="category"><%= result.category %></p>
+            <p class="description"><%=result.description%></p>
+            <div class="price-section">
+              <span class="price"><b> Rs.<%= result.price %></b></span>
+              <br />
+              <% if (result.saleprice) { %>
+              <span class="sale-price"><b>Rs.<%= result.saleprice %></b></span>
+              <% } %>
+            </div>
+            <div class="button-section">
+              <a href="addcart/<%=result.id%>">
+                <button class="add-to-cart">Add to Cart</button>
+              </a>
+              <a href="checkout/<%= result.id %>">
+                <button class="buy-now">Buy Now</button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>
+

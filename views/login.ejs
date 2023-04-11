@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aamzone</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+		/* background: #3494E6;  /* fallback for old browsers */
+/* background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  Chrome 10-25, Safari 5.1-6 */
+/* background: linear-gradient(to right, #EC6EAD, #3494E6); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+      }
+
+      .container {
+        max-width: 500px;
+        margin: auto;
+        padding: 50px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        margin-top: 8rem;
+		    background: #D3CCE3; 
+        background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  
+        background: linear-gradient(to right, #E9E4F0, #D3CCE3); 
+      }
+
+      h1 {
+        text-align: center;
+        color: #c31432; 
+       
+        color: linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+        );
+
+        margin-bottom: 30px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+	  input[type="email"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+
+      button {
+        background: #c31432; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #240b36,
+          #c31432
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+      }
+
+      .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+      }
+
+      /* img.avatar {
+        width: 40%;
+        border-radius: 50%;
+      } */
+
+      .container > p {
+        text-align: center;
+      }
+
+      .psw {
+        float: right;
+        padding-top: 16px;
+		color: black;
+		text-align:center;
+		text-decoration: none;
+      }
+
+	  .regi{
+		text-decoration: none;
+		color:black;
+	  }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Fabley Login</h1>
+      
+      <form class="" action="/auth" method="post">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required />
+
+        <label for="psw"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="passwd"
+          required
+        />
+
+        <button type="submit">Login</button>
+        
+      </form>
+      <p>Don't have an account? <a href="/register" class="regi">Sign up</a></p>
+      <a class="psw" href="#">Forgot password? Reset now</a>
+    </div>
+  </body>
+</html>

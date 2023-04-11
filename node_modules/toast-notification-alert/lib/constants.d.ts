@@ -1,0 +1,38 @@
+export declare const toastDefault: {
+    tapToDismiss: boolean;
+    toastClass: string;
+    containerId: string;
+    debug: boolean;
+    showMethod: string;
+    showDuration: number;
+    showEasing: string;
+    hideMethod: string;
+    hideDuration: number;
+    hideEasing: string;
+    closeMethod: boolean;
+    closeDuration: boolean;
+    closeEasing: boolean;
+    closeOnHover: boolean;
+    extendedTimeOut: number;
+    iconClasses: {
+        error: string;
+        info: string;
+        success: string;
+        warning: string;
+        alert: string;
+    };
+    iconClass: string;
+    position: string;
+    timeOut: number;
+    titleClass: string;
+    messageClass: string;
+    escapeHtml: boolean;
+    target: string;
+    closeHtml: string;
+    closeClass: string;
+    newestOnTop: boolean;
+    preventDuplicates: boolean;
+    progressBar: boolean;
+    progressClass: string;
+    rtl: boolean;
+};
